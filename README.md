@@ -4,6 +4,60 @@
 
 # SAVE DOCUMENT
 
+ ## document JSON format
+ ```
+{
+    "application": {
+      "application_id": "1",
+      "application_name": "application"
+    },
+    "module": {
+      "module_id": "1",
+      "module_name": "module"
+    },
+    "workflow": {
+      "workflow_id": "1",
+      "workflow_name": "workflow"
+    },
+    "file_information": {
+      "application_transaction_id": 1111,
+      "file_type": "PDF",
+      "file_name": "Bhagavad Geeta"
+     
+    },
+    "created_by": {
+      "employee_code": "1234567890",
+      "employee_name": "Soumya Modak",
+      "designation": "Software Engineer",
+      "organization": "Software Engineer"
+    },
+    "created_for": {
+      "person_id": 17,
+      "name": "Ram Kumar",
+      "gender": "Male",
+      "age_yr": 23,
+      "mobile_number": 1234567890,
+      "additional_id_1": 123456789012,
+      "additional_id_1_description": "Aadhaar ID",
+      "additional_id_2": "1234567890",
+      "additional_id_2_description": "PAN ID"
+    },
+    "document": {
+      "actual_document_base_64": "Your base64"
+    },
+    "additional_info_1": {
+      "info_1": {
+        "greeting": "hello"
+      }
+    },
+    "additional_info_2": {
+      "info_1": {
+        "greeting": "hi"
+      }
+    }
+  }
+```
+
 ![Screenshot 2024-06-16 110253](https://github.com/Rupak100/nic-poject/assets/112826831/e3df904a-a9e2-495b-a4ab-7d4e0f922ffb)
 
 # GET a document using document ID
