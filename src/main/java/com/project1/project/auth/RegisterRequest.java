@@ -12,7 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RegisterRequest {
-    private String clientId;
+    private String client_id;
     private String client_secret;
     private Date created_on;
     private Date expiry_on;

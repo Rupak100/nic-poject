@@ -1,32 +1,17 @@
 package com.project1.project.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class PdfPasswordRequest {
-    private long applicationTransactionId;
+    private long application_transaction_id;
     private String password;
 
-    // Constructors (if needed)
-    public PdfPasswordRequest() {
-    }
 
-    public PdfPasswordRequest(long applicationTransactionId, String password) {
-        this.applicationTransactionId = applicationTransactionId;
-        this.password = password;
-    }
-
-    // Getters and setters
-    public long getApplicationTransactionId() {
-        return applicationTransactionId;
-    }
-
-    public void setApplicationTransactionId(long applicationTransactionId) {
-        this.applicationTransactionId = applicationTransactionId;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

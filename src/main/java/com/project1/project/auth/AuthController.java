@@ -24,7 +24,7 @@ public class AuthController {
 
     @PostMapping("/init")
     public ResponseEntity<AuthenticationResponse> init(@RequestBody AuthenticationRequest request){
-        if(userRepository.findByClientId(request.getClientId()).isPresent()){
+        if(userRepository.findByClientId(request.getClient_id()).isPresent()){
             try {
                 AuthenticationResponse response = service.authenticate(request);
                 return new ResponseEntity<>(response, HttpStatus.OK);
@@ -34,7 +34,7 @@ public class AuthController {
             }
         }else{
             RegisterRequest registerRequest = new RegisterRequest();
-            registerRequest.setClientId(request.getClientId());
+            registerRequest.setClient_id(request.getClient_id());
             registerRequest.setClient_secret(request.getClient_secret());
 
             try {

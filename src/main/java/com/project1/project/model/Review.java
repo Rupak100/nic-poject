@@ -14,7 +14,7 @@ public class Review {
 
     @Id
     private String id;
-    private long applicationTransactionId;
+    private long application_transaction_id;
     private String review;
 
 

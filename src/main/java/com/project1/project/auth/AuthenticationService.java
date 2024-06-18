@@ -31,7 +31,7 @@ public class AuthenticationService {
         Date expiryDate = calender.getTime();
 
         var user = UserEntity.builder()
-                .clientId(request.getClientId())
+                .client_id(request.getClient_id())
                 .client_secret(passwordEncoder.encode(request.getClient_secret()))
                 .created_on(date)
                 .expiry_on(expiryDate)
@@ -44,9 +44,9 @@ public class AuthenticationService {
 
     public AuthenticationResponse authenticate(AuthenticationRequest request){
         authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.getClientId(), request.getClient_secret())
+                new UsernamePasswordAuthenticationToken(request.getClient_id(), request.getClient_secret())
         );
-        var user = userRepository.findByClientId(request.getClientId()).orElseThrow();
+        var user = userRepository.findByClientId(request.getClient_id()).orElseThrow();
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder().token(jwtToken).build();
     }

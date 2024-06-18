@@ -19,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 @Document(collection = "client")
 public class UserEntity implements UserDetails {
-    private String clientId;
+    private String client_id;
     private String client_secret;
     private Date created_on;
     private Date expiry_on;
@@ -27,7 +27,7 @@ public class UserEntity implements UserDetails {
     private Role role;
 
     public String getUsername() {
-        return clientId;
+        return client_id;
     }
 
     @Override
@@ -51,7 +51,7 @@ public class UserEntity implements UserDetails {
     }
 
     public void setUsername(String username) {
-        this.clientId = username;
+        this.client_id = username;
     }
 
     @Override

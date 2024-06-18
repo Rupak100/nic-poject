@@ -15,6 +15,6 @@ public interface DocumentRepository extends MongoRepository<ClientDocument, UUID
     List<ClientDocument> findByPersonId(int personId);
 
     @Query("{'file_information.application_transaction_id' :  ?0}")
-    Optional<ClientDocument> findByApplicationTransactionId(long applicationId);
+    Optional<ClientDocument> findByApplicationTransactionId(long application_transaction_id);
 
 }

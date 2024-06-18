@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-import javax.swing.text.html.Option;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -56,10 +55,10 @@ public class DocumentController {
 
     @PostMapping("/reviewdocument")
     public ResponseEntity<?> saveOrUpdateReview(@RequestBody Review review) {
-        Optional<ClientDocument> clientdocumentOptional = documentRepository.findByApplicationTransactionId(review.getApplicationTransactionId());
+        Optional<ClientDocument> clientdocumentOptional = documentRepository.findByApplicationTransactionId(review.getApplication_transaction_id());
 
         if (clientdocumentOptional.isPresent()) {
-            review.setApplicationTransactionId(clientdocumentOptional.get().getFile_information().getApplication_transaction_id());
+            review.setApplication_transaction_id(clientdocumentOptional.get().getFile_information().getApplication_transaction_id());
             Review savedReview = documentService.saveOrUpdateReview(review);
 
             return ResponseEntity.ok(savedReview);
@@ -72,7 +71,7 @@ public class DocumentController {
 
     @PostMapping("/archivedocument")
     public ResponseEntity<?> archiveDocument(@RequestBody ArchiveDocument archiveDocument) {
-        Optional<ClientDocument> clientDocumentOptional = documentRepository.findByApplicationTransactionId(archiveDocument.getApplicationTransactionId());
+        Optional<ClientDocument> clientDocumentOptional = documentRepository.findByApplicationTransactionId(archiveDocument.getApplication_transaction_id());
 
         if (clientDocumentOptional.isPresent()) {
             ArchiveDocument savedArchiveDocument = documentService.archiveDocument(archiveDocument);
@@ -87,7 +86,7 @@ public class DocumentController {
     @PostMapping("/addwatermarktodocument")
     public ResponseEntity<?> addWatermarkToDocument(@RequestBody WatermarkRequest watermarkRequest){
         try {
-            ClientDocument updatedDocument = documentService.addWatermarkToDocument(watermarkRequest.getApplicationTransactionId(),
+            ClientDocument updatedDocument = documentService.addWatermarkToDocument(watermarkRequest.getApplication_transaction_id(),
                     watermarkRequest.getWatermark());
             return new ResponseEntity<>(updatedDocument, HttpStatus.OK);
         } catch (IOException e) {
